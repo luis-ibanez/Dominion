@@ -38,7 +38,24 @@ class Dominion(object):
         if len(self.players)<2:
             return False, "minPlayers"
         else:
-            self.board.dealCards();
+            self.board.dealCards(len(self.players))
+            for player in self.players.itervalues():
+                self.board.getCards("Estate", 3)
+                self.board.getCards("Copper", 7)
+                player.addCardToDeck("Estate")
+                player.addCardToDeck("Estate")
+                player.addCardToDeck("Estate")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                player.addCardToDeck("Copper")
+                
+            
+    
+
             
             
         

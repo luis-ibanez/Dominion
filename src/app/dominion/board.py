@@ -16,6 +16,7 @@ class Board(object):
         '''
         Constructor
         '''
+        self.emptyDeck = 0
         self.numCopper = 60
         self.numSilver = 40
         self.numGold = 30
@@ -43,7 +44,7 @@ class Board(object):
                         hand. If you do, you are unaffected
                         by that Attack.""","reaction"),
                        "Chancellor" : ActionCard("Chancellor",3,"""You may immediately put your
-                       deck into your discard pile."""),
+                       deck into your discard pile.""","action"),
                        "Village" : ActionCard("Village",3,"","action"),
                        "Woodcutter" : ActionCard("Woodcutter",3,"","action"),
                        "Workshop" : ActionCard("Workshop",3,"Gain a card costing up to $4.","action"),
@@ -95,24 +96,27 @@ class Board(object):
                        Put those Treasure cards in your hand
                        and discard the other revealed cards.""","action")}
         
-    def dealCards(self,numPlayers,curse):
+    def dealCards(self,numPlayers):
         '''
         Initialization of the board
         '''
         #Treasury initialization
-        self.boardCards["Gold"]=(self.numGold,MoneyCard["Gold"])
-        self.boardCards["Silver"]=(self.numSilver,MoneyCard["Silver"])
-        self.boardCards["Copper"]=(self.numCopper,MoneyCard["Copper"])
-        self.boardCards["Estate"]=(self.numEstate,VictoryCard["Estate"])
-        self.boardCards["Duchy"]=(self.numDuchy,VictoryCard["Duchy"])
-        self.boardCards["Province"]=(self.numProvince,VictoryCard["Province"])
+        self.boardCards["Gold"]=(self.numGold,self.moneyCards["Gold"])
+        self.boardCards["Silver"]=(self.numSilver,self.moneyCards["Silver"])
+        self.boardCards["Copper"]=(self.numCopper,self.moneyCards["Copper"])
+        self.boardCards["Estate"]=(self.numEstate,self.victoryCards["Estate"])
+        self.boardCards["Duchy"]=(self.numDuchy,self.victoryCards["Duchy"])
+        self.boardCards["Province"]=(self.numProvince,self.victoryCards["Province"])
         #Kingdom carts initialization
+        curse = False
         for i in range(10):
             name,card=self.actionCards.popitem()
-            self.boardCards[name].append((10,card))
+            self.boardCards[name]=(10,card)
+            if name == "Witch":
+                curse=True
         #curse initialization
         if curse:
-            self.boardCards["curse"]=(40-(4-numPlayers*10),VictoryCard["Curse"])
+            self.boardCards["curse"]=(40-(4-numPlayers*10),self.victoryCards["Curse"])
     
     def getCards(self,name,num):
         '''
