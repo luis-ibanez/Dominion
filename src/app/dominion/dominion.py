@@ -20,7 +20,6 @@ class Dominion(object):
         self.board=Board()
         self.players={}
         self.order=CircularList(self.players.values())
-        self.actualPlayer=''
         self.admin=''
         
     def newPlayer(self,name):
@@ -58,20 +57,24 @@ class Dominion(object):
                 player.addCardToDeck("Copper")
                 player.addCardToDeck("Copper")
                 player.addCardToDeck("Copper")
-                
-            self.actualPlayer=self.order.current()
+                player.drawCards(5)  
     
-    def newTurn(self,playerName):
+    def newTurn(self):
         '''
         draw card to the player and wait for actions
         '''
-        continue
+        #communicate player turn to self.order.current()
+        #receive actions
+        #start buy 
     
-    def endTurn(self,playerName):
+    def endTurn(self):
         '''
         draw card to the player and wait for actions
         '''
-        continue
+        self.players[self.order.current()].discardHand()
+        self.players[self.order.current()].drawCards(5)  
+        self.order.next()
+        
     
     
         

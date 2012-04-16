@@ -56,6 +56,10 @@ class Player(object):
         for i in range(numCards):
             cards.append(self.getCardFromDeck())
         return cards
+    
+    def discardHand(self):
+        self.discard.extend(self.hand)
+        self.hand=[]
             
         
             
