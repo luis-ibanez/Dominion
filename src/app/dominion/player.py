@@ -3,6 +3,7 @@ Created on 09/04/2012
 
 @author: ender3
 '''
+import random
 
 class Player(object):
     '''
@@ -26,26 +27,40 @@ class Player(object):
         self.numActions=1
         self.numBuys=1
         self.coins=0
-        
-    def addCardToDeck(self,card):
-        self.deck.append(card)
     
     def addCardsToDeck(self,cards):
         for card in cards.itervalues():
             self.addCardToDeck(card)
     
-    def addCardToDiscard(self,card):
-        self.discard.append(card)
-    
     def addCardsToDiscard(self,cards):
         for card in cards.itervalues():
             self.addCardToDiscard(card)
-            
-    def addCardToHand(self,card):
-        self.hand.append(card)
     
     def addCardsToHand(self,cards):
         for card in cards.itervalues():
             self.addCardToHand(card)
+    
+    def resetDeck(self):
+        self.deck.extend(self.discard)
+        random.shuffle(self.deck)
+        
+    def getCardFromDeck(self):
+        if(1>len(self.deck)):
+            self.resetDeck()
+        cardName=self.deck.pop()
+        self.hand.append(cardName)
+        return cardName
+            
+    def drawCards(self,numCards):
+        cards = []
+        for i in range(numCards):
+            cards.append(self.getCardFromDeck())
+        return cards
+            
+        
+            
+            
+
+            
 
         

@@ -3,7 +3,7 @@ Created on 09/04/2012
 
 @author: ender3
 '''
-
+import random
 from app.dominion.card import VictoryCard, ActionCard, MoneyCard
 
 
@@ -110,7 +110,8 @@ class Board(object):
         #Kingdom carts initialization
         curse = False
         for i in range(10):
-            name,card=self.actionCards.popitem()
+            name = random.choice(self.actionCards.keys())
+            card=self.actionCards.pop(name)
             self.boardCards[name]=(10,card)
             if name == "Witch":
                 curse=True

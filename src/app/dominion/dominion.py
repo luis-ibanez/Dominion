@@ -5,6 +5,7 @@ Created on 09/04/2012
 '''
 from app.dominion.board import Board
 from app.dominion.player import Player
+from app.dominion.util.circularList import CircularList
 
 class Dominion(object):
     '''
@@ -18,11 +19,16 @@ class Dominion(object):
         '''
         self.board=Board()
         self.players={}
+        self.order=CircularList(self.players.values())
+        self.actualPlayer=''
+        self.admin=''
         
     def newPlayer(self,name):
         '''
         Create and add a new plater to the game, check if the game is full
         '''
+        if len(self.players)==0:
+            self.admin=name
         if len(self.players)>3:
             return False,"maxPlayers"
         elif name in self.players:
@@ -52,6 +58,24 @@ class Dominion(object):
                 player.addCardToDeck("Copper")
                 player.addCardToDeck("Copper")
                 player.addCardToDeck("Copper")
+                
+            self.actualPlayer=self.order.current()
+    
+    def newTurn(self,playerName):
+        '''
+        draw card to the player and wait for actions
+        '''
+        continue
+    
+    def endTurn(self,playerName):
+        '''
+        draw card to the player and wait for actions
+        '''
+        continue
+    
+    
+        
+    
                 
             
     
