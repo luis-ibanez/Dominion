@@ -5,8 +5,8 @@ Created on 22/04/2012
 '''
 import unittest
 import random
-from app.dominion.board import Board
-from app.dominion.card import Card
+from board import Board
+from card import Card
 
 
 

@@ -10,7 +10,7 @@ import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
 import tornado.web
-from app.dominion.dominion import Dominion
+from dominion import Dominion
 
 games = []
 users = {}

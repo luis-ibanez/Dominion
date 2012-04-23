@@ -4,7 +4,7 @@ Created on 09/04/2012
 @author: ender3
 '''
 import random
-from app.dominion.card import VictoryCard, ActionCard, MoneyCard, Card, CardCollection
+from card import VictoryCard, ActionCard, MoneyCard, Card, CardCollection
 
 
 class Board(object):

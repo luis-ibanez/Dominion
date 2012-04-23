@@ -5,7 +5,7 @@ Created on 15/04/2012
 '''
 import os
 from flask import Flask, session, redirect, url_for, escape, request
-from app.dominion.dominion import Dominion
+from dominion import Dominion
 
 app = Flask(__name__)
 

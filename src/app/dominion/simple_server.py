@@ -10,7 +10,7 @@ import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
 import tornado.web
-from app.dominion.dominion import Dominion
+from dominion import Dominion
 
 users = {}
 game = Dominion()
@@ -141,8 +141,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
                     self.sendToPlayer(self.dominion_message('It\'s not tour turn'), name)
             #command play 
             elif (command[0].strip() == '/play'):
-                name = tornado.escape.xhtml_escape(self.get_secure_cookie("user"))
-                self.send_status_to_player(name)
+                self.sendToEveryone(self.dominion_message("PLay not implemented yet"))
             #command buy
             elif (command[0].strip() == '/buy'):
                 name = tornado.escape.xhtml_escape(self.get_secure_cookie("user"))

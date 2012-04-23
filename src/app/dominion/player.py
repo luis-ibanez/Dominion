@@ -4,7 +4,7 @@ Created on 09/04/2012
 @author: ender3
 '''
 import random
-from app.dominion.card import Card, CardCollection
+from card import Card, CardCollection
 
 class Player(object):
     '''

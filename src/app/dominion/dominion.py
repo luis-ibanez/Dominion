@@ -3,10 +3,10 @@ Created on 09/04/2012
 
 @author: ender3
 '''
-from app.dominion.board import Board
-from app.dominion.player import Player
-from app.dominion.util.circularList import CircularList
-from app.dominion.card import Card
+from board import Board
+from player import Player
+from util.circularList import CircularList
+from card import Card
 
 class Dominion(object):
     '''
