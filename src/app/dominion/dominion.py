@@ -19,7 +19,7 @@ class Dominion(object):
     STATE_BUY = 3
     STATE_FINISH = 4
 
-    def __init__(self,server):
+    def __init__(self):
         '''
         Constructor
         '''
@@ -32,8 +32,6 @@ class Dominion(object):
         self.next_player = None
         self.state = self.STATE_OPEN
         self.templates = {'game' : 'dominion.html'}
-        
-        self.server = server
         
     def newPlayer(self,name):
         '''
