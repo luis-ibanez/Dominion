@@ -9,12 +9,12 @@ class CircularList(object):
     classdocs
     '''
     def __init__(self, sequence=[]):
-        super(CircularList, self).__init__(sequence)
-        self.position = 0
+        self.list=sequence
+        self.index=0
 
     def current(self):
-        return self[self.position]
+        return self.list[self.index]
             
     def next(self, n=1):
-        self.position = (self.position + n) % len(self)
-        return self[self.position]
+        self.index = (self.index + n) % len(self.list)
+        return self.list[self.index]

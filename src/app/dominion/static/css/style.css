@@ -2,6 +2,7 @@ body {
 	background-color: #eee;
 	font-family: Arial;
 }
+
 a:link, a:visited {
 	color: #ff6600;
 	text-decoration: none;
@@ -14,8 +15,8 @@ textarea {
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	width: 300px;
-	height: 50px;
+	width: 80%;
+	height: 65px;
 	resize: none;
 }
 input[type=text] {
@@ -60,6 +61,50 @@ input[type=text] {
 	margin-right: auto;
 	margin-top: 50px;
 }
+#logout {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-size: 10px;
+}
+ 
+#header{
+ position:relative; 
+ height:100px; 
+ background-color:#9399DC; 
+ width:100%;
+ display:block;
+ overflow:auto;
+} 
+ 
+#twocols{
+ width:100%;
+ position:relative; 
+ }
+ 
+#rightcol{
+ width:30%; 
+ height:100%;
+ float:right; 
+ position:relative; 
+ background-color:#2099DC;
+ }
+ 
+#maincol{
+ background-color: #FFFFFF;  
+ float: left;
+ height: 100%;
+ position: relative; 
+ width:70%; 
+ }
+ 
+#footer{
+ height:300px; 
+  background-color:#6999DC; 
+ clear:both;
+ display:block;
+ overflow:auto;
+} 
 
 .message {
 	border: 1px solid #ccc;
@@ -76,9 +121,32 @@ input[type=text] {
 .message .body {
 
 }
-#logout {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	font-size: 10px;
+
+.FixedHeightContainer
+{
+  float:right;
+  height: 350px;
+  width:250px; 
+  padding:3px; 
 }
+.Content
+{
+  height:75%;
+   overflow:auto;
+    background:#fff;
+}​
+ 
+.clearfix:after {
+ content: "."; 
+ display: block; 
+height: 0; 
+ clear: both; 
+ visibility: hidden;
+ }
+ 
+.clearfix{display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */  

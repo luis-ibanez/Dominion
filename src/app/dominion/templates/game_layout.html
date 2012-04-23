@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>{% block title %} Dominion {% end %}</title>
+<meta charset="utf-8" />
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" media="screen" type="text/css" href="static/css/style.css" />
+
+<script>
+    	{% block script %} 
+    	{% end %}
+		</script>
+</head>
+
+<body>
+	<div id="pagewidth" >
+		<div id="header">
+				{% block header %}
+				{% end %}
+		</div>
+		<div id="wrapper" class="clearfix">
+			<div id="twocols"> 
+				<div id="maincol">
+					{% block maincol %}
+					{% end %}
+				</div>
+				<div id="rightcol">
+					{% block rightcol %}
+					{% end %}
+				</div>
+			</div> 
+		</div>
+		<div id="footer">
+			{% block footer %}
+			{% end %}
+		</div>
+	</div>
+</body>
+</html>

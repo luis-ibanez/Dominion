@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} Dominion Lobby {% end %}
+
+{% block content %}
+	Welcome {{ user }}!<br/><br/>
+	
+	{% for game in games %}
+	{% if len(game.players) < game.number_of_players %}
+	<a href="{{ game.url }}">join</a>
+	{% end %}
+	{{ game.name }} - 
+	{% for player in game.players %}
+	{% if player.left %}
+	<a href="{{ game.url }}/{{ str(id(player)) }}">{{ player.name }}</a>
+	{% else %}
+	{{ player.name }}
+	{% end %}
+	{% end %}
+	<br/>
+	{% end %}
+
+	<a href="/new?game=dominion">New Dominion game</a><br/>
+	<div style="clear: both;"></div>
+{% end %}
+
